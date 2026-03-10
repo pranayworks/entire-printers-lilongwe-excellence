@@ -43,9 +43,7 @@ const Navbar = () => {
       <div className="section-container flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2">
-          <div className="w-10 h-10 rounded-lg gold-gradient flex items-center justify-center">
-            <span className="font-heading font-black text-navy text-lg">EP</span>
-          </div>
+          <img src="/logo.png" alt="Entire Printers Logo" className="h-16 w-auto object-contain rounded-sm" />
           <div className="flex flex-col leading-tight">
             <span className="font-heading font-bold text-primary-foreground text-lg tracking-tight">
               Entire Printers

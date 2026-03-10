@@ -123,9 +123,9 @@ const About = () => (
             whileInView={{ opacity: 1, y: 0 }}
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.2 }}
-            className="rounded-xl overflow-hidden shadow-lg md:col-span-1"
+            className="rounded-xl overflow-hidden shadow-lg md:col-span-1 group"
           >
-            <img src={teamPhoto} alt="Entire Printers full team" className="w-full h-64 object-cover" />
+            <img src={teamPhoto} alt="Entire Printers full team" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
             <div className="p-4 bg-card">
               <h4 className="font-heading font-bold text-foreground">Our Strength</h4>
               <p className="text-sm text-muted-foreground">The dedicated team powering Entire Printers</p>

@@ -83,6 +83,11 @@ const productImages: Record<string, string> = {
   "USB Drives": imgFlashDisks,
   "Notebooks": imgNotebooks,
   "Wallets": imgMousePads,
+  "Danglers": imgPosters,
+  "Calendars": imgBrochures,
+  "Jacket Folders": imgBrochures,
+  "Letter Heads": imgEnvelopes,
+  "Flip Charts": imgPosters,
 };
 
 const services = [
@@ -201,11 +206,10 @@ const Services = () => {
             <button
               key={s.title}
               onClick={() => setActive(i)}
-              className={`flex items-center gap-2 px-5 py-3 rounded-lg font-heading font-semibold text-sm transition-all ${
-                active === i
+              className={`flex items-center gap-2 px-5 py-3 rounded-lg font-heading font-semibold text-sm transition-all ${active === i
                   ? "brand-gradient text-primary-foreground shadow-lg"
                   : "bg-muted text-muted-foreground hover:bg-accent"
-              }`}
+                }`}
             >
               <s.icon className="w-4 h-4" />
               {s.title}
