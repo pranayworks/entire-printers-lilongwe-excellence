@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import {
   Award, Lightbulb, Users, Shield, Leaf, UsersRound, Star,
 } from "lucide-react";
+import teamPhoto from "@/assets/team-photo.jpg";
+import officePhoto from "@/assets/marketing-office.jpg";
+import designSection from "@/assets/design-section.jpg";
 
 const values = [
   { icon: Award, title: "Quality", desc: "Uncompromising standards in every print" },
