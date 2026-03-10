@@ -1,6 +1,11 @@
 import { motion } from "framer-motion";
 import { Settings, Cpu, MonitorDot, Scissors } from "lucide-react";
 
+import equipPrepress from "@/assets/equipment-prepress.jpg";
+import equipPrinting from "@/assets/equipment-printing.jpg";
+import equipDigital from "@/assets/equipment-digital.jpg";
+import equipPostpress from "@/assets/equipment-postpress.jpg";
+
 interface Machine {
   name: string;
   desc: string;
@@ -10,6 +15,7 @@ interface Category {
   title: string;
   icon: typeof Settings;
   color: string;
+  image: string;
   machines: Machine[];
 }
 
@@ -18,6 +24,7 @@ const categories: Category[] = [
     title: "Pre-Press",
     icon: Cpu,
     color: "bg-accent text-accent-foreground",
+    image: equipPrepress,
     machines: [
       { name: "Amsky Augsetter CTP Machine", desc: "Computer-to-plate technology for preparing printing plates with precision and speed." },
       { name: "Plate Processor", desc: "Develops and processes CTP plates ready for the press with consistent quality." },
@@ -27,6 +34,7 @@ const categories: Category[] = [
     title: "Printing Equipment",
     icon: Settings,
     color: "brand-gradient text-primary-foreground",
+    image: equipPrinting,
     machines: [
       { name: "Komori Sprint 4-Color Offset Press", desc: "High-speed multi-color offset printing for commercial jobs with exceptional registration." },
       { name: "Komori Lithrone 28", desc: "At the heart of our printing prowess lies the remarkable Komori Lithrone, a cutting-edge marvel that redefines the standards of print quality and efficiency." },
@@ -36,6 +44,7 @@ const categories: Category[] = [
     title: "Digital Equipment",
     icon: MonitorDot,
     color: "gold-gradient text-navy",
+    image: equipDigital,
     machines: [
       { name: "Large Format UV Printer", desc: "Wide-format printing for banners, signage, and large displays with UV-cured inks." },
       { name: "Epson Wide Format Printer", desc: "High-resolution digital output for proofing and short-run prints with vivid colors." },
@@ -46,6 +55,7 @@ const categories: Category[] = [
     title: "Post-Press",
     icon: Scissors,
     color: "bg-accent text-accent-foreground",
+    image: equipPostpress,
     machines: [
       { name: "Cutting Machine", desc: "Precision paper cutting for clean, accurate final dimensions." },
       { name: "Die Punching Machine", desc: "Custom shapes and perforations for packaging and specialty prints." },
@@ -71,15 +81,39 @@ const Equipment = () => (
         </p>
       </div>
 
-      <div className="space-y-12">
+      <div className="space-y-16">
         {categories.map((cat, ci) => (
           <div key={cat.title}>
-            <div className="flex items-center gap-3 mb-6">
-              <div className={`w-10 h-10 rounded-lg ${cat.color} flex items-center justify-center`}>
-                <cat.icon className="w-5 h-5" />
+            {/* Category header with image */}
+            <motion.div
+              initial={{ opacity: 0, y: 20 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ duration: 0.5 }}
+              className="mb-8"
+            >
+              <div className="relative rounded-2xl overflow-hidden h-48 md:h-64 mb-6">
+                <img
+                  src={cat.image}
+                  alt={cat.title}
+                  className="w-full h-full object-cover"
+                />
+                <div className="absolute inset-0 bg-gradient-to-r from-navy/80 to-navy/40 flex items-center">
+                  <div className="px-8 md:px-12">
+                    <div className="flex items-center gap-3 mb-2">
+                      <div className={`w-10 h-10 rounded-lg ${cat.color} flex items-center justify-center`}>
+                        <cat.icon className="w-5 h-5" />
+                      </div>
+                      <h3 className="text-2xl md:text-3xl font-heading font-bold text-white">{cat.title}</h3>
+                    </div>
+                    <p className="text-white/70 text-sm md:text-base max-w-lg">
+                      {cat.machines.length} machine{cat.machines.length > 1 ? "s" : ""} powering this department
+                    </p>
+                  </div>
+                </div>
               </div>
-              <h3 className="text-xl font-heading font-bold text-foreground">{cat.title}</h3>
-            </div>
+            </motion.div>
+
             <div className="grid sm:grid-cols-2 lg:grid-cols-3 gap-4">
               {cat.machines.map((m, mi) => (
                 <motion.div
