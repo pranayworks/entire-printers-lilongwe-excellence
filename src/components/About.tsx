@@ -2,6 +2,9 @@ import { motion } from "framer-motion";
 import {
   Award, Lightbulb, Users, Shield, Leaf, UsersRound, Star,
 } from "lucide-react";
+import teamPhoto from "@/assets/team-photo.jpg";
+import officePhoto from "@/assets/marketing-office.jpg";
+import designSection from "@/assets/design-section.jpg";
 
 const values = [
   { icon: Award, title: "Quality", desc: "Uncompromising standards in every print" },
@@ -80,6 +83,55 @@ const About = () => (
             </div>
           </div>
         </motion.div>
+      </div>
+
+      {/* Team & Office Photos */}
+      <div className="mb-20">
+        <div className="text-center mb-10">
+          <h3 className="text-2xl font-heading font-bold text-foreground">Our Team & Workspace</h3>
+          <p className="text-muted-foreground mt-2">The people and places behind every perfect print</p>
+        </div>
+        <div className="grid md:grid-cols-3 gap-6">
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5 }}
+            className="rounded-xl overflow-hidden shadow-lg group"
+          >
+            <img src={officePhoto} alt="Entire Printers marketing office team" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="p-4 bg-card">
+              <h4 className="font-heading font-bold text-foreground">Marketing Office</h4>
+              <p className="text-sm text-muted-foreground">Our dedicated marketing team at work</p>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.1 }}
+            className="rounded-xl overflow-hidden shadow-lg group"
+          >
+            <img src={designSection} alt="Pre-press designing section" className="w-full h-64 object-cover group-hover:scale-105 transition-transform duration-500" />
+            <div className="p-4 bg-card">
+              <h4 className="font-heading font-bold text-foreground">Pre-Press & Design</h4>
+              <p className="text-sm text-muted-foreground">Where creativity meets precision</p>
+            </div>
+          </motion.div>
+          <motion.div
+            initial={{ opacity: 0, y: 20 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: 0.2 }}
+            className="rounded-xl overflow-hidden shadow-lg md:col-span-1"
+          >
+            <img src={teamPhoto} alt="Entire Printers full team" className="w-full h-64 object-cover" />
+            <div className="p-4 bg-card">
+              <h4 className="font-heading font-bold text-foreground">Our Strength</h4>
+              <p className="text-sm text-muted-foreground">The dedicated team powering Entire Printers</p>
+            </div>
+          </motion.div>
+        </div>
       </div>
 
       {/* Values */}
