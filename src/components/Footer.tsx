@@ -4,6 +4,7 @@ const quickLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
+  { label: "Gallery", href: "#gallery" },
   { label: "Equipment", href: "#equipment" },
   { label: "Clients", href: "#clients" },
   { label: "Quote", href: "#quote" },
@@ -11,10 +12,10 @@ const quickLinks = [
 ];
 
 const socials = [
-  { icon: Facebook, href: "#", label: "Facebook" },
-  { icon: Instagram, href: "#", label: "Instagram" },
-  { icon: Linkedin, href: "#", label: "LinkedIn" },
-  { icon: MessageCircle, href: "#", label: "WhatsApp" },
+  { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61584474628682", label: "Facebook" },
+  { icon: Instagram, href: "https://www.instagram.com/entireprinters", label: "Instagram" },
+  { icon: Linkedin, href: "https://www.linkedin.com/company/entire-printers", label: "LinkedIn" },
+  { icon: MessageCircle, href: "https://wa.me/918688754335?text=Hello%20Entire%20Printers!%20%F0%9F%96%A8%EF%B8%8F%0A%0AI%20am%20interested%20in%20your%20printing%20services.%20Could%20you%20please%20help%20me%20with%20a%20quote%3F%0A%0AName%3A%20%0AService%20Required%3A%20%0AQuantity%3A%20%0ADeadline%3A%20", label: "WhatsApp" },
 ];
 
 const Footer = () => (
@@ -38,6 +39,8 @@ const Footer = () => (
               <a
                 key={s.label}
                 href={s.href}
+                target="_blank"
+                rel="noopener noreferrer"
                 aria-label={s.label}
                 className="w-10 h-10 rounded-lg bg-navy-foreground/10 flex items-center justify-center hover:bg-gold hover:text-navy transition-colors"
               >
