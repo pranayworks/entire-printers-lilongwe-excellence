@@ -4,9 +4,10 @@ const quickLinks = [
   { label: "Home", href: "#home" },
   { label: "About", href: "#about" },
   { label: "Services", href: "#services" },
-  { label: "Gallery", href: "#gallery" },
   { label: "Equipment", href: "#equipment" },
   { label: "Clients", href: "#clients" },
+  { label: "Gallery", href: "#gallery" },
+  { label: "Testimonials", href: "#testimonials" },
   { label: "Quote", href: "#quote" },
   { label: "Contact", href: "#contact" },
 ];
