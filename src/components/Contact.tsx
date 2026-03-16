@@ -6,12 +6,14 @@ const offices = [
     address: "Shop No. 4, Costantini, Area 4,\nNext to Four Brothers,\nNear Game Complex",
     email: "eptl.malawi@gmail.com",
     phone: "+265 985 777 033",
+    phone2: "+265 999 111 411",
   },
   {
     title: "Factory",
     address: "Plot #Chitipi 18/1/16, Njewa,\nAlong Mchinji Road,\nLilongwe, Malawi",
     email: "eptl.malawi@gmail.com",
     phone: "+265 985 777 033",
+    phone2: "+265 999 111 411",
   },
 ];
 
@@ -51,6 +53,15 @@ const Contact = () => (
                 <Phone className="w-4 h-4" />
                 {o.phone}
               </a>
+              {o.phone2 && (
+                <a
+                  href={`tel:${o.phone2.replace(/\s/g, "")}`}
+                  className="flex items-center gap-2 text-sm text-primary hover:text-gold transition-colors"
+                >
+                  <Phone className="w-4 h-4" />
+                  {o.phone2}
+                </a>
+              )}
             </div>
           </div>
         ))}
