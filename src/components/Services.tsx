@@ -38,6 +38,15 @@ import imgStickers from "@/assets/promo/stickers.jpg";
 import imgPaperBags from "@/assets/promo/paperbags.jpg";
 import imgBooks from "@/assets/promo/books.jpg";
 import imgBoxes from "@/assets/promo/boxes.jpg";
+import imgCalendars from "@/assets/promo/calendars.png";
+import imgLetterHeads from "@/assets/promo/letterheads.png";
+import imgKeychains from "@/assets/promo/keychains.png";
+import imgPhoneCovers from "@/assets/promo/phonecovers.png";
+import imgSignage from "@/assets/promo/signage.png";
+import imgJacketFolders from "@/assets/promo/jacketfolders.png";
+import imgWallets from "@/assets/promo/wallets.png";
+import imgDanglers from "@/assets/promo/danglers.png";
+import imgLaptopSkin from "@/assets/promo/laptopsking.png";
 
 const productImages: Record<string, string> = {
   "T-Shirts": imgTshirts,
@@ -70,23 +79,23 @@ const productImages: Record<string, string> = {
   "All Kinds of Books": imgBooks,
   "Packaging Boxes": imgBoxes,
   "Large Format Banners": imgBackdrop,
-  "Signage": imgDoorSigns,
+  "Signage": imgSignage,
   "Short-Run Publications": imgBooks,
   "Marketing Materials": imgBrochures,
   "Proofing Prints": imgPosters,
-  "Keychains": imgBadges,
-  "Phone Covers": imgMousePads,
+  "Keychains": imgKeychains,
+  "Phone Covers": imgPhoneCovers,
   "Sticker Sheets": imgStickers,
   "Name Tags": imgBadges,
   "Water Bottles": imgBottles,
-  "Laptops": imgMousePads,
+  "Laptops": imgLaptopSkin,
   "USB Drives": imgFlashDisks,
   "Notebooks": imgNotebooks,
-  "Wallets": imgMousePads,
-  "Danglers": imgPosters,
-  "Calendars": imgBrochures,
-  "Jacket Folders": imgBrochures,
-  "Letter Heads": imgEnvelopes,
+  "Wallets": imgWallets,
+  "Danglers": imgDanglers,
+  "Calendars": imgCalendars,
+  "Jacket Folders": imgJacketFolders,
+  "Letter Heads": imgLetterHeads,
   "Flip Charts": imgPosters,
 };
 
