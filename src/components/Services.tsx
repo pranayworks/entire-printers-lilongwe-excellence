@@ -49,6 +49,17 @@ import imgDanglers from "@/assets/promo/danglers.png";
 import imgLaptopSkin from "@/assets/promo/laptopsking.png";
 import imgNotebooksSpiral from "@/assets/promo/notebooks-spiral.png";
 import imgStickerSheets from "@/assets/promo/stickersheets.png";
+import imgLargeFormat from "@/assets/promo/largeformat-banner.png";
+import imgShortRunPubs from "@/assets/promo/shortrun-pubs.png";
+import imgMarketingMats from "@/assets/promo/marketing-materials.png";
+import imgProofing from "@/assets/promo/proofing.png";
+import imgFlipCharts from "@/assets/promo/flipcharts.png";
+import imgNameTags from "@/assets/promo/nametags.png";
+import imgWaterBottles from "@/assets/promo/waterbottles.png";
+import imgUSBDrives from "@/assets/promo/usbdrives.png";
+import imgPhoneCoversNew from "@/assets/promo/phonecovers-new.png";
+import imgLaptopSkinsNew from "@/assets/promo/laptopskins-new.png";
+import imgWalletsNew from "@/assets/promo/wallets-new.png";
 
 const productImages: Record<string, string> = {
   "T-Shirts": imgTshirts,
@@ -80,25 +91,25 @@ const productImages: Record<string, string> = {
   "Paper Bags": imgPaperBags,
   "All Kinds of Books": imgBooks,
   "Packaging Boxes": imgBoxes,
-  "Large Format Banners": imgBackdrop,
+  "Large Format Banners": imgLargeFormat,
   "Signage": imgSignage,
-  "Short-Run Publications": imgBooks,
-  "Marketing Materials": imgBrochures,
-  "Proofing Prints": imgPosters,
+  "Short-Run Publications": imgShortRunPubs,
+  "Marketing Materials": imgMarketingMats,
+  "Proofing Prints": imgProofing,
   "Keychains": imgKeychains,
-  "Phone Covers": imgPhoneCovers,
+  "Phone Covers": imgPhoneCoversNew,
   "Sticker Sheets": imgStickerSheets,
-  "Name Tags": imgBadges,
-  "Water Bottles": imgBottles,
-  "Laptops": imgLaptopSkin,
-  "USB Drives": imgFlashDisks,
+  "Name Tags": imgNameTags,
+  "Water Bottles": imgWaterBottles,
+  "Laptops": imgLaptopSkinsNew,
+  "USB Drives": imgUSBDrives,
   "Notebooks": imgNotebooksSpiral,
-  "Wallets": imgWallets,
+  "Wallets": imgWalletsNew,
   "Danglers": imgDanglers,
   "Calendars": imgCalendars,
   "Jacket Folders": imgJacketFolders,
   "Letter Heads": imgLetterHeads,
-  "Flip Charts": imgPosters,
+  "Flip Charts": imgFlipCharts,
 };
 
 const services = [
