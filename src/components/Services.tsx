@@ -47,6 +47,8 @@ import imgJacketFolders from "@/assets/promo/jacketfolders.png";
 import imgWallets from "@/assets/promo/wallets.png";
 import imgDanglers from "@/assets/promo/danglers.png";
 import imgLaptopSkin from "@/assets/promo/laptopsking.png";
+import imgNotebooksSpiral from "@/assets/promo/notebooks-spiral.png";
+import imgStickerSheets from "@/assets/promo/stickersheets.png";
 
 const productImages: Record<string, string> = {
   "T-Shirts": imgTshirts,
@@ -85,12 +87,12 @@ const productImages: Record<string, string> = {
   "Proofing Prints": imgPosters,
   "Keychains": imgKeychains,
   "Phone Covers": imgPhoneCovers,
-  "Sticker Sheets": imgStickers,
+  "Sticker Sheets": imgStickerSheets,
   "Name Tags": imgBadges,
   "Water Bottles": imgBottles,
   "Laptops": imgLaptopSkin,
   "USB Drives": imgFlashDisks,
-  "Notebooks": imgNotebooks,
+  "Notebooks": imgNotebooksSpiral,
   "Wallets": imgWallets,
   "Danglers": imgDanglers,
   "Calendars": imgCalendars,
