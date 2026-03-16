@@ -26,7 +26,7 @@ import imgFlashDisks from "@/assets/promo/flashdisks.jpg";
 import imgNotebooks from "@/assets/promo/notebooks.jpg";
 import imgBottles from "@/assets/promo/bottles.jpg";
 import imgBadges from "@/assets/promo/badges.jpg";
-import imgBackdrop from "@/assets/promo/backdrop.jpg";
+import imgBackdrop from "@/assets/promo/backdrop-new.png";
 import imgDoorSigns from "@/assets/promo/doorsigns.jpg";
 import imgMousePads from "@/assets/promo/mousepads.jpg";
 import imgUniforms from "@/assets/promo/uniforms.jpg";
