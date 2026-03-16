@@ -218,8 +218,8 @@ const Services = () => {
               key={s.title}
               onClick={() => setActive(i)}
               className={`flex items-center gap-2 px-5 py-3 rounded-lg font-heading font-semibold text-sm transition-all ${active === i
-                  ? "brand-gradient text-primary-foreground shadow-lg"
-                  : "bg-muted text-muted-foreground hover:bg-accent"
+                ? "brand-gradient text-primary-foreground shadow-lg"
+                : "bg-muted text-muted-foreground hover:bg-accent"
                 }`}
             >
               <s.icon className="w-4 h-4" />

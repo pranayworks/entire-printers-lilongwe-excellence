@@ -10,8 +10,8 @@ const offices = [
   {
     title: "Factory",
     address: "Plot #Chitipi 18/1/16, Njewa,\nAlong Mchinji Road,\nLilongwe, Malawi",
-    email: "eptl.marketing23@gmail.com",
-    phone: "+265 999 111 411",
+    email: "eptl.malawi@gmail.com",
+    phone: "+265 985 777 033",
   },
 ];
 

@@ -36,11 +36,10 @@ const Navbar = () => {
 
   return (
     <nav
-      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${
-        scrolled
+      className={`fixed top-0 left-0 right-0 z-50 transition-all duration-300 ${scrolled
           ? "bg-navy/95 backdrop-blur-md shadow-lg py-2"
           : "bg-transparent py-4"
-      }`}
+        }`}
     >
       <div className="section-container flex items-center justify-between">
         {/* Logo */}
@@ -62,11 +61,10 @@ const Navbar = () => {
             <a
               key={link.href}
               href={link.href}
-              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${
-                activeSection === link.href.slice(1)
+              className={`px-4 py-2 rounded-md text-sm font-medium transition-colors ${activeSection === link.href.slice(1)
                   ? "text-gold"
                   : "text-primary-foreground/80 hover:text-gold"
-              }`}
+                }`}
             >
               {link.label}
             </a>
@@ -97,11 +95,10 @@ const Navbar = () => {
                 key={link.href}
                 href={link.href}
                 onClick={() => setMobileOpen(false)}
-                className={`px-4 py-3 rounded-md text-sm font-medium transition-colors ${
-                  activeSection === link.href.slice(1)
+                className={`px-4 py-3 rounded-md text-sm font-medium transition-colors ${activeSection === link.href.slice(1)
                     ? "text-gold bg-primary/20"
                     : "text-primary-foreground/80 hover:text-gold"
-                }`}
+                  }`}
               >
                 {link.label}
               </a>

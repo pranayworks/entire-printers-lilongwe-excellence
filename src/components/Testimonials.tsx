@@ -242,7 +242,7 @@ const Testimonials = () => {
         <div className="grid grid-cols-1 md:grid-cols-3 gap-8 mb-20 bg-white/[0.02] border border-white/[0.05] rounded-3xl p-10 backdrop-blur-sm">
           <Counter value={500} suffix="+" label="Happy Clients" />
           <Counter value={8} suffix="+" label="Testimonials" />
-          <Counter value={25} suffix="+" label="Years Trusted" />
+          <Counter value={7} suffix="+" label="Years Trusted" />
         </div>
 
         {/* Featured Testimonial */}
