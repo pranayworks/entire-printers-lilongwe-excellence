@@ -26,11 +26,12 @@ const Footer = () => (
         {/* Brand */}
         <div>
           <div className="flex items-center gap-2 mb-4">
-            <img src="/logo.png" alt="Entire Printers Logo" className="h-24 w-auto object-contain rounded-sm" />
-            <span className="font-heading font-bold text-lg">Entire Printers</span>
+            <img src="/logo.png" alt="EPTL Malawi — Entire Printers Logo" className="h-24 w-auto object-contain rounded-sm" />
+            <span className="font-heading font-bold text-lg">EPTL Malawi</span>
           </div>
           <p className="text-navy-foreground/60 text-sm leading-relaxed mb-6">
-            Printing Excellence. Delivered.
+            Entire Printers Technology Limited (EPTL Malawi) — Printing
+            Excellence. Delivered.
             <br />
             Lilongwe's leading printing company offering offset, digital, DTF,
             and promotional printing solutions.

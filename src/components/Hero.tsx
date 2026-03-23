@@ -35,6 +35,7 @@ const Hero = () => {
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.15 }}
         >
+          <span className="sr-only">EPTL Malawi — </span>
           Printing Excellence.
           <br />
           <span className="text-gold">Delivered.</span>

@@ -42,11 +42,12 @@ const About = () => (
           transition={{ duration: 0.6 }}
         >
           <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            Entire Printers is a premier printing company based in Lilongwe,
-            Malawi, offering a comprehensive range of printing solutions from
-            offset and digital printing to DTF and promotional products. With
-            world-class equipment and a dedicated team, we deliver exceptional
-            quality that meets international standards.
+            EPTL Malawi (Entire Printers Technology Limited) is a premier
+            printing company based in Lilongwe, Malawi, offering a comprehensive
+            range of printing solutions from offset and digital printing to DTF
+            and promotional products. With world-class equipment and a dedicated
+            team, we deliver exceptional quality that meets international
+            standards.
           </p>
           <div className="p-6 rounded-xl border border-primary/20 bg-accent">
             <h3 className="font-heading font-bold text-lg text-foreground mb-2">Our Mission</h3>

@@ -44,10 +44,10 @@ const Navbar = () => {
       <div className="section-container flex items-center justify-between">
         {/* Logo */}
         <a href="#home" className="flex items-center gap-2">
-          <img src="/logo.png" alt="Entire Printers Logo" className="h-16 w-auto object-contain rounded-sm" />
+          <img src="/logo.png" alt="EPTL Malawi — Printing Excellence" className="h-16 w-auto object-contain rounded-sm" />
           <div className="flex flex-col leading-tight">
             <span className="font-heading font-bold text-primary-foreground text-lg tracking-tight">
-              Entire Printers
+              EPTL Malawi
             </span>
             <span className="text-[10px] text-gold font-medium tracking-widest uppercase">
               Printing Excellence

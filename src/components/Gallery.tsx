@@ -6,16 +6,16 @@ const categories = ["All", "Offset Printing", "Digital", "DTF", "Promotional", "
 
 // Placeholder slots for actual photos
 const galleryPhotos = [
-  { id: 1, category: "Offset Printing", src: "/gallery/workplace.jpg", alt: "Workplace Offset Print", span: "md:col-span-2 md:row-span-2" },
-  { id: 2, category: "Offset Printing", src: "/gallery/machine-operator.jpg", alt: "Machine Operator", span: "col-span-1 row-span-1" },
-  { id: 3, category: "DTF", src: "/gallery/dtf-press.jpg", alt: "DTF Press Operation", span: "col-span-1 row-span-1" },
-  { id: 4, category: "Digital", src: "/gallery/binding.jpg", alt: "Finishing & Binding", span: "md:col-span-1 md:row-span-2" },
-  { id: 5, category: "Offset Printing", src: "/gallery/cutting.jpg", alt: "Cutting Machine", span: "md:col-span-2 md:row-span-1" },
-  { id: 6, category: "Offset Printing", src: "/gallery/image6.jpg", alt: "Offset Press", span: "col-span-1 row-span-1" },
-  { id: 7, category: "Offset Printing", src: "/gallery/image7.jpg", alt: "Printing Operation", span: "col-span-1 row-span-1" },
-  { id: 8, category: "Offset Printing", src: "/gallery/image8.jpg", alt: "Machine Operation", span: "md:col-span-2 md:row-span-2" },
-  { id: 9, category: "Digital", src: "/gallery/image9.jpg", alt: "Digital Printing", span: "md:col-span-1 md:row-span-1" },
-  { id: 10, category: "Digital", src: "/gallery/image10.jpg", alt: "Wide Format Print", span: "md:col-span-1 md:row-span-1" },
+  { id: 1, category: "Offset Printing", src: "/gallery/workplace.jpg", alt: "EPTL Malawi Offset Printing Workshop Lilongwe", span: "md:col-span-2 md:row-span-2" },
+  { id: 2, category: "Offset Printing", src: "/gallery/machine-operator.jpg", alt: "Professional Printing Machine Operator at EPTL Malawi", span: "col-span-1 row-span-1" },
+  { id: 3, category: "DTF", src: "/gallery/dtf-press.jpg", alt: "Direct to Film (DTF) Press Operation Lilongwe", span: "col-span-1 row-span-1" },
+  { id: 4, category: "Digital", src: "/gallery/binding.jpg", alt: "Book Finishing and Binding Services Malawi", span: "md:col-span-1 md:row-span-2" },
+  { id: 5, category: "Offset Printing", src: "/gallery/cutting.jpg", alt: "Industrial Paper Cutting Machine Entire Printers", span: "md:col-span-2 md:row-span-1" },
+  { id: 6, category: "Offset Printing", src: "/gallery/image6.jpg", alt: "Offset Printing Press Lilongwe Malawi", span: "col-span-1 row-span-1" },
+  { id: 7, category: "Offset Printing", src: "/gallery/image7.jpg", alt: "High Volume Printing Operation EPTL", span: "col-span-1 row-span-1" },
+  { id: 8, category: "Offset Printing", src: "/gallery/image8.jpg", alt: "Modern Printing Equipment in Malawi", span: "md:col-span-2 md:row-span-2" },
+  { id: 9, category: "Digital", src: "/gallery/image9.jpg", alt: "Digital Color Printing Services Lilongwe", span: "md:col-span-1 md:row-span-1" },
+  { id: 10, category: "Digital", src: "/gallery/image10.jpg", alt: "Wide Format Digital Print Results EPTL Malawi", span: "md:col-span-1 md:row-span-1" },
 ];
 
 const Gallery = () => {
