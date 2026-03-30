@@ -1,9 +1,35 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
   <url>
-    <loc>https://eptlmalawi.co.in/</loc>
-    <lastmod>2024-03-24</lastmod>
-    <changefreq>monthly</changefreq>
+    <loc>https://www.eptlmalawi.co.in/</loc>
     <priority>1.0</priority>
+  </url>
+  <url>
+    <loc>https://www.eptlmalawi.co.in/about</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.eptlmalawi.co.in/services</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.eptlmalawi.co.in/equipment</loc>
+    <priority>0.8</priority>
+  </url>
+  <url>
+    <loc>https://www.eptlmalawi.co.in/clients</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.eptlmalawi.co.in/gallery</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.eptlmalawi.co.in/testimonials</loc>
+    <priority>0.7</priority>
+  </url>
+  <url>
+    <loc>https://www.eptlmalawi.co.in/contact</loc>
+    <priority>0.8</priority>
   </url>
 </urlset>
