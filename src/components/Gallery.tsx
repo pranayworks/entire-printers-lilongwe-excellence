@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback, MouseEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 
@@ -27,28 +27,28 @@ const Gallery = () => {
     : galleryPhotos.filter((p) => p.category === activeTab);
 
   const openLightbox = (index: number) => setLightboxIndex(index);
-  const closeLightbox = () => setLightboxIndex(null);
+  const closeLightbox = useCallback(() => setLightboxIndex(null), []);
 
-  const nextPhoto = (e: any) => {
-    e.stopPropagation();
+  const nextPhoto = useCallback((e?: MouseEvent | KeyboardEvent) => {
+    e?.stopPropagation();
     setLightboxIndex((prev) => (prev !== null ? (prev + 1) % filteredPhotos.length : null));
-  };
+  }, [filteredPhotos.length]);
 
-  const prevPhoto = (e: any) => {
-    e.stopPropagation();
+  const prevPhoto = useCallback((e?: MouseEvent | KeyboardEvent) => {
+    e?.stopPropagation();
     setLightboxIndex((prev) => (prev !== null ? (prev - 1 + filteredPhotos.length) % filteredPhotos.length : null));
-  };
+  }, [filteredPhotos.length]);
 
   useEffect(() => {
     const handleKeyDown = (e: KeyboardEvent) => {
       if (lightboxIndex === null) return;
       if (e.key === "Escape") closeLightbox();
-      if (e.key === "ArrowRight") nextPhoto(e as any);
-      if (e.key === "ArrowLeft") prevPhoto(e as any);
+      if (e.key === "ArrowRight") nextPhoto(e);
+      if (e.key === "ArrowLeft") prevPhoto(e);
     };
     window.addEventListener("keydown", handleKeyDown);
     return () => window.removeEventListener("keydown", handleKeyDown);
-  }, [lightboxIndex, filteredPhotos.length]);
+  }, [lightboxIndex, closeLightbox, nextPhoto, prevPhoto]);
 
   return (
     <>

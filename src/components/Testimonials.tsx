@@ -91,10 +91,10 @@ const Counter = ({ value, label, suffix = "" }: { value: number; label: string; 
     const end = value;
     if (start === end) return;
 
-    let totalMilisecondDuraton = 2000;
-    let incrementTime = (totalMilisecondDuraton / end) * 5;
+    const totalMilisecondDuraton = 2000;
+    const incrementTime = (totalMilisecondDuraton / end) * 5;
 
-    let timer = setInterval(() => {
+    const timer = setInterval(() => {
       start += 1;
       setCount(start);
       if (start === end) clearInterval(timer);

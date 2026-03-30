@@ -3,7 +3,9 @@ import { Send } from "lucide-react";
 
 declare global {
   interface Window {
-    emailjs: any;
+    emailjs: {
+      send: (serviceId: string, templateId: string, params: Record<string, unknown>) => Promise<unknown>;
+    };
   }
 }
 
@@ -20,8 +22,8 @@ const QuoteForm = () => {
   const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
-    var btn = document.getElementById("submitBtn") as HTMLButtonElement;
-    var msg = document.getElementById("formMsg") as HTMLDivElement;
+    const btn = document.getElementById("submitBtn") as HTMLButtonElement;
+    const msg = document.getElementById("formMsg") as HTMLDivElement;
 
     // Reset message
     msg.style.display = "none";
@@ -31,7 +33,7 @@ const QuoteForm = () => {
     btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
 
     // All form values sent to eptl.malawi@gmail.com
-    var params = {
+    const params = {
       to_email: "eptl.malawi@gmail.com",
       from_name: (document.getElementById("f_name") as HTMLInputElement).value,
       company: (document.getElementById("f_company") as HTMLInputElement).value || "Not provided",
@@ -63,7 +65,7 @@ const QuoteForm = () => {
           msg.style.display = "none";
         }, 9000);
       })
-      .catch(function (err: any) {
+      .catch(function (err: Error) {
         console.error("EmailJS Error:", err);
         msg.style.display = "block";
         msg.style.background = "rgba(239,68,68,0.1)";
