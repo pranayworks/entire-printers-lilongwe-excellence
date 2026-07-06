@@ -1,5 +1,5 @@
 import { useState, useEffect, useRef } from "react";
-import { motion, AnimatePresence, useScroll, useTransform, useSpring, useMotionValue } from "framer-motion";
+import { motion, AnimatePresence, useScroll, useTransform, useSpring, useMotionValue, useInView } from "framer-motion";
 import { ChevronLeft, ChevronRight, Star, Quote } from "lucide-react";
 
 interface Testimonial {
@@ -78,30 +78,26 @@ const testimonials: Testimonial[] = [
   },
 ];
 
+// FIX: Counter now uses useInView so it only triggers when scrolled into view
 const Counter = ({ value, label, suffix = "" }: { value: number; label: string; suffix?: string }) => {
   const [count, setCount] = useState(0);
   const ref = useRef(null);
-  const { scrollYProgress } = useScroll({
-    target: ref,
-    offset: ["start end", "end start"],
-  });
+  const isInView = useInView(ref, { once: true, margin: "-80px" });
 
   useEffect(() => {
+    if (!isInView) return;
     let start = 0;
     const end = value;
     if (start === end) return;
-
-    const totalMilisecondDuraton = 2000;
-    const incrementTime = (totalMilisecondDuraton / end) * 5;
-
+    const totalDuration = 2000;
+    const incrementTime = (totalDuration / end) * 5;
     const timer = setInterval(() => {
       start += 1;
       setCount(start);
       if (start === end) clearInterval(timer);
     }, incrementTime);
-
     return () => clearInterval(timer);
-  }, [value]);
+  }, [isInView, value]);
 
   return (
     <div ref={ref} className="text-center">

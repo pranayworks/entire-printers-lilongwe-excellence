@@ -1,9 +1,9 @@
-import React from "react";
-import { Send } from "lucide-react";
+import React, { useState } from "react";
+import { Send, AlertCircle, CheckCircle } from "lucide-react";
 
 declare global {
   interface Window {
-    emailjs: {
+    emailjs?: {
       send: (serviceId: string, templateId: string, params: Record<string, unknown>) => Promise<unknown>;
     };
   }
@@ -18,68 +18,83 @@ const serviceOptions = [
   "Other",
 ];
 
+interface FormState {
+  name: string;
+  company: string;
+  email: string;
+  phone: string;
+  service: string;
+  quantity: string;
+  deadline: string;
+  message: string;
+}
+
+const initialForm: FormState = {
+  name: "",
+  company: "",
+  email: "",
+  phone: "",
+  service: "",
+  quantity: "",
+  deadline: "",
+  message: "",
+};
+
+type StatusType = "idle" | "sending" | "success" | "error";
+
 const QuoteForm = () => {
-  const handleSubmit = (e: React.FormEvent<HTMLFormElement>) => {
+  const [form, setForm] = useState<FormState>(initialForm);
+  const [status, setStatus] = useState<StatusType>("idle");
+  const [errorMsg, setErrorMsg] = useState("");
+
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLSelectElement | HTMLTextAreaElement>
+  ) => {
+    setForm((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
+    setStatus("sending");
+    setErrorMsg("");
 
-    const btn = document.getElementById("submitBtn") as HTMLButtonElement;
-    const msg = document.getElementById("formMsg") as HTMLDivElement;
+    // FIX: Null-check on window.emailjs before calling send
+    if (!window.emailjs) {
+      setStatus("error");
+      setErrorMsg(
+        "Email service failed to load. Please email eptl.malawi@gmail.com directly or call +265 985 777 033."
+      );
+      return;
+    }
 
-    // Reset message
-    msg.style.display = "none";
-
-    // Loading state
-    btn.disabled = true;
-    btn.innerHTML = '<i class="fas fa-spinner fa-spin"></i> Sending...';
-
-    // All form values sent to eptl.malawi@gmail.com
     const params = {
       to_email: "eptl.malawi@gmail.com",
-      from_name: (document.getElementById("f_name") as HTMLInputElement).value,
-      company: (document.getElementById("f_company") as HTMLInputElement).value || "Not provided",
-      from_email: (document.getElementById("f_email") as HTMLInputElement).value,
-      phone: (document.getElementById("f_phone") as HTMLInputElement).value || "Not provided",
-      service: (document.getElementById("f_service") as HTMLSelectElement).value,
-      quantity: (document.getElementById("f_qty") as HTMLInputElement).value || "Not specified",
-      deadline: (document.getElementById("f_deadline") as HTMLInputElement).value || "Not specified",
-      message: (document.getElementById("f_message") as HTMLTextAreaElement).value,
-      reply_to: (document.getElementById("f_email") as HTMLInputElement).value,
+      from_name: form.name,
+      company: form.company || "Not provided",
+      from_email: form.email,
+      phone: form.phone || "Not provided",
+      service: form.service || "Not specified",
+      quantity: form.quantity || "Not specified",
+      deadline: form.deadline || "Not specified",
+      message: form.message,
+      reply_to: form.email,
     };
 
-    window.emailjs
-      .send("service_umb4hqa", "template_cnlkcma", params)
-      .then(function () {
-        msg.style.display = "block";
-        msg.style.background = "rgba(34,197,94,0.1)";
-        msg.style.border = "1px solid rgba(34,197,94,0.3)";
-        msg.style.color = "#4ade80";
-        msg.style.padding = "16px";
-        msg.style.borderRadius = "8px";
-        msg.style.marginTop = "14px";
-        msg.innerHTML =
-          '<i class="fas fa-check-circle"></i> Quote sent successfully to eptl.malawi@gmail.com! We will contact you within 24 hours.';
-        (document.getElementById("quoteForm") as HTMLFormElement).reset();
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Quote Request';
-        setTimeout(function () {
-          msg.style.display = "none";
-        }, 9000);
-      })
-      .catch(function (err: Error) {
-        console.error("EmailJS Error:", err);
-        msg.style.display = "block";
-        msg.style.background = "rgba(239,68,68,0.1)";
-        msg.style.border = "1px solid rgba(239,68,68,0.3)";
-        msg.style.color = "#f87171";
-        msg.style.padding = "16px";
-        msg.style.borderRadius = "8px";
-        msg.style.marginTop = "14px";
-        msg.innerHTML =
-          '<i class="fas fa-exclamation-circle"></i> Failed to send. Please email eptl.malawi@gmail.com directly or call +265 985 777 033.';
-        btn.disabled = false;
-        btn.innerHTML = '<i class="fas fa-paper-plane"></i> Send Quote Request';
-      });
+    try {
+      await window.emailjs.send("service_umb4hqa", "template_cnlkcma", params);
+      setStatus("success");
+      setForm(initialForm);
+      setTimeout(() => setStatus("idle"), 9000);
+    } catch (err) {
+      console.error("EmailJS Error:", err);
+      setStatus("error");
+      setErrorMsg(
+        "Failed to send. Please email eptl.malawi@gmail.com directly or call +265 985 777 033."
+      );
+    }
   };
+
+  const isSending = status === "sending";
 
   return (
     <section id="quote" className="section-padding brand-gradient">
@@ -98,16 +113,17 @@ const QuoteForm = () => {
         </div>
 
         <form
-          id="quoteForm"
           onSubmit={handleSubmit}
           className="max-w-3xl mx-auto grid sm:grid-cols-2 gap-4"
         >
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-medium text-primary-foreground/80">Full Name *</label>
             <input
-              id="f_name"
+              name="name"
               required
               type="text"
+              value={form.name}
+              onChange={handleChange}
               className="px-4 py-3 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-gold transition-colors"
               placeholder="John Doe"
             />
@@ -116,8 +132,10 @@ const QuoteForm = () => {
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-medium text-primary-foreground/80">Company / Organization</label>
             <input
-              id="f_company"
+              name="company"
               type="text"
+              value={form.company}
+              onChange={handleChange}
               className="px-4 py-3 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-gold transition-colors"
               placeholder="Company name"
             />
@@ -126,9 +144,11 @@ const QuoteForm = () => {
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-medium text-primary-foreground/80">Email Address *</label>
             <input
-              id="f_email"
+              name="email"
               required
               type="email"
+              value={form.email}
+              onChange={handleChange}
               className="px-4 py-3 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-gold transition-colors"
               placeholder="email@example.com"
             />
@@ -137,8 +157,10 @@ const QuoteForm = () => {
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-medium text-primary-foreground/80">Phone Number</label>
             <input
-              id="f_phone"
+              name="phone"
               type="tel"
+              value={form.phone}
+              onChange={handleChange}
               className="px-4 py-3 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-gold transition-colors"
               placeholder="+265 XXX XXX XXX"
             />
@@ -147,7 +169,9 @@ const QuoteForm = () => {
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-medium text-primary-foreground/80">Service Required</label>
             <select
-              id="f_service"
+              name="service"
+              value={form.service}
+              onChange={handleChange}
               className="px-4 py-3 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground focus:outline-none focus:border-gold transition-colors"
             >
               <option value="" className="text-black">Select a service</option>
@@ -160,8 +184,10 @@ const QuoteForm = () => {
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-medium text-primary-foreground/80">Quantity Required</label>
             <input
-              id="f_qty"
+              name="quantity"
               type="text"
+              value={form.quantity}
+              onChange={handleChange}
               className="px-4 py-3 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-gold transition-colors"
               placeholder="e.g. 500"
             />
@@ -170,40 +196,72 @@ const QuoteForm = () => {
           <div className="flex flex-col gap-1.5">
             <label className="text-sm font-medium text-primary-foreground/80">Deadline</label>
             <input
-              id="f_deadline"
+              name="deadline"
               type="date"
+              value={form.deadline}
+              onChange={handleChange}
               className="px-4 py-3 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground focus:outline-none focus:border-gold transition-colors"
             />
           </div>
 
-          <div className="flex flex-col gap-1.5">
-            <label className="text-sm font-medium text-primary-foreground/80">File Upload</label>
-            <input
-              type="file"
-              className="px-4 py-3 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground/60 focus:outline-none focus:border-gold transition-colors file:bg-transparent file:border-0 file:text-gold file:font-medium"
-            />
+          {/* FIX: File upload removed — EmailJS cannot send file attachments.
+              Users should email eptl.malawi@gmail.com directly with design files. */}
+          <div className="flex flex-col gap-1.5 justify-end">
+            <p className="text-xs text-primary-foreground/50 leading-relaxed">
+              📎 To attach design files, please email them directly to{" "}
+              <a href="mailto:eptl.malawi@gmail.com" className="text-gold hover:underline">
+                eptl.malawi@gmail.com
+              </a>
+            </p>
           </div>
 
           <div className="sm:col-span-2 flex flex-col gap-1.5">
             <label className="text-sm font-medium text-primary-foreground/80">Project Details *</label>
             <textarea
-              id="f_message"
+              name="message"
               required
               rows={4}
+              value={form.message}
+              onChange={handleChange}
               className="px-4 py-3 rounded-lg bg-primary-foreground/10 border border-primary-foreground/20 text-primary-foreground placeholder:text-primary-foreground/40 focus:outline-none focus:border-gold transition-colors resize-none"
               placeholder="Describe your project requirements..."
             />
           </div>
 
-          <div className="sm:col-span-2">
-            <div id="formMsg" style={{ display: "none" }}></div>
+          <div className="sm:col-span-2 space-y-3">
+            {/* Status messages */}
+            {status === "success" && (
+              <div className="flex items-center gap-3 p-4 rounded-lg bg-green-500/10 border border-green-500/30 text-green-300">
+                <CheckCircle className="w-5 h-5 shrink-0" />
+                <span className="text-sm">Quote sent successfully! We'll contact you within 24 hours.</span>
+              </div>
+            )}
+            {status === "error" && (
+              <div className="flex items-center gap-3 p-4 rounded-lg bg-red-500/10 border border-red-500/30 text-red-300">
+                <AlertCircle className="w-5 h-5 shrink-0" />
+                <span className="text-sm">{errorMsg}</span>
+              </div>
+            )}
+
             <button
-              id="submitBtn"
               type="submit"
-              className="w-full sm:w-auto px-8 py-4 rounded-lg gold-gradient font-heading font-bold text-navy hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2 mt-4"
+              disabled={isSending}
+              className="w-full sm:w-auto px-8 py-4 rounded-lg gold-gradient font-heading font-bold text-navy hover:opacity-90 transition-opacity disabled:opacity-50 flex items-center justify-center gap-2"
             >
-              <Send className="w-4 h-4" />
-              Send Quote Request
+              {isSending ? (
+                <>
+                  <svg className="w-4 h-4 animate-spin" fill="none" viewBox="0 0 24 24">
+                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" />
+                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8v8z" />
+                  </svg>
+                  Sending...
+                </>
+              ) : (
+                <>
+                  <Send className="w-4 h-4" />
+                  Send Quote Request
+                </>
+              )}
             </button>
           </div>
         </form>

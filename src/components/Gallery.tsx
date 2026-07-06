@@ -2,7 +2,8 @@ import { useState, useEffect, useCallback, MouseEvent } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { X, ChevronLeft, ChevronRight, Maximize2 } from "lucide-react";
 
-const categories = ["All", "Offset Printing", "Digital", "DTF", "Promotional", "Events"];
+// FIX: Removed "Events" category — no gallery photos use that tag, it always showed empty
+const categories = ["All", "Offset Printing", "Digital", "DTF", "Promotional"];
 
 // Placeholder slots for actual photos
 const galleryPhotos = [

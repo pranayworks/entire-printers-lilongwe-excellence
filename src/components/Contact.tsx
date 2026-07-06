@@ -67,11 +67,11 @@ const Contact = () => (
         ))}
       </div>
 
-      {/* Map embed */}
+      {/* Map embed — Area 4, Costantini, Lilongwe (near Four Brothers / Game Complex) */}
       <div className="max-w-4xl mx-auto rounded-xl overflow-hidden shadow-lg border border-border">
         <iframe
-          title="Entire Printers Location"
-          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d123464.67009082916!2d33.7!3d-13.95!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1921d4ae062e4d25%3A0x50adfa2b4e4a4c5d!2sLilongwe%2C%20Malawi!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
+          title="Entire Printers Location — Area 4, Costantini, Lilongwe"
+          src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3862.4!2d33.7815!3d-13.9626!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x1921d52b3b7e0001%3A0x0!2sArea%204%2C%20Lilongwe%2C%20Malawi!5e0!3m2!1sen!2sus!4v1700000000000!5m2!1sen!2sus"
           width="100%"
           height="350"
           style={{ border: 0 }}

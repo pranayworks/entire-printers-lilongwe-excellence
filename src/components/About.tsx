@@ -42,7 +42,7 @@ const About = () => (
           transition={{ duration: 0.6 }}
         >
           <p className="text-lg text-muted-foreground leading-relaxed mb-6">
-            EPTL Malawi (Entire Printers Technology Limited) is a premier
+            EPTL Malawi (Entire Printers Traders Limited) is a premier
             printing company based in Lilongwe, Malawi, offering a comprehensive
             range of printing solutions from offset and digital printing to DTF
             and promotional products. With world-class equipment and a dedicated

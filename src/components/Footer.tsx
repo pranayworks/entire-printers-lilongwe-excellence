@@ -16,7 +16,8 @@ const socials = [
   { icon: Facebook, href: "https://www.facebook.com/profile.php?id=61584474628682", label: "Facebook" },
   { icon: Instagram, href: "https://www.instagram.com/entireprinters", label: "Instagram" },
   { icon: Linkedin, href: "https://www.linkedin.com/company/entire-printers", label: "LinkedIn" },
-  { icon: MessageCircle, href: "https://wa.me/918688754335?text=Hello%20Entire%20Printers!%20%F0%9F%96%A8%EF%B8%8F%0A%0AI%20am%20interested%20in%20your%20printing%20services.%20Could%20you%20please%20help%20me%20with%20a%20quote%3F%0A%0AName%3A%20%0AService%20Required%3A%20%0AQuantity%3A%20%0ADeadline%3A%20", label: "WhatsApp" },
+  // FIX: Corrected WhatsApp number to Malawi +265 985 777 033 (was incorrectly set to an Indian number)
+  { icon: MessageCircle, href: "https://wa.me/265985777033?text=Hello%20Entire%20Printers!%20%F0%9F%96%A8%EF%B8%8F%0A%0AI%20am%20interested%20in%20your%20printing%20services.%20Could%20you%20please%20help%20me%20with%20a%20quote%3F%0A%0AName%3A%20%0AService%20Required%3A%20%0AQuantity%3A%20%0ADeadline%3A%20", label: "WhatsApp" },
 ];
 
 const Footer = () => (
@@ -76,6 +77,7 @@ const Footer = () => (
             <p>Shop No. 4, Costantini, Area 4, Lilongwe</p>
             <p>eptl.malawi@gmail.com</p>
             <p>+265 985 777 033</p>
+            <p>+265 999 111 411</p>
           </div>
         </div>
       </div>
